@@ -26,16 +26,16 @@ const limiter= rateLimit({windowMs:15*60*1000,max:3000})
 app.use(limiter)
 
 
-// Mongo DB Database Connection
+// Routing Implement
+app.use("/api/v1",router)
 
+// Mongo DB Database Connection
 mongoose.set('strictQuery', false);
 mongoose.connect(process.env.DATABASE_URL, {autoIndex:true} ,(error)=>{
     console.log("DB Connection Success")
     console.log(error)
 })
 
-// Routing Implement
-app.use("/api/v1",router)
 
 // Undefined Route Implement
 app.get('*', (req,res) =>{

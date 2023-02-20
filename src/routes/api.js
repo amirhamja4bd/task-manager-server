@@ -10,6 +10,7 @@ router.post('/registration', registration)
 router.post('/login', login)
 router.put('/profile-update', authVerifyMiddleware, profileUpdate)
 router.get('/profile-details', authVerifyMiddleware, profileDetails)
+router.get('/a', authVerifyMiddleware, profileDetails)
 
 // Password Forgot
 router.get('/recover-verify-email/:email', recoverVerifyEmail)

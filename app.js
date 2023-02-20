@@ -25,6 +25,11 @@ app.use(bodyParser.json());
 const limiter= rateLimit({windowMs:15*60*1000,max:3000})
 app.use(limiter)
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "https://amirhamza-task-manager.netlify.app");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
 
 // Routing Implement
 app.use("/api/v1",router)

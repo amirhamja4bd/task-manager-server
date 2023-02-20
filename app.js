@@ -32,7 +32,6 @@ app.use("/api/v1",router)
 // Mongo DB Database Connection
 mongoose.set('strictQuery', false);
 mongoose.connect(process.env.DATABASE_URL, {autoIndex:true} ,(error)=>{
-    res.header("Access-Control-Allow-Origin", "https://amirhamza-task-manager.netlify.app");
     console.log("DB Connection Success")
     console.log(error)
 })

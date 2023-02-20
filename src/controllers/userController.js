@@ -83,6 +83,8 @@ exports.recoverVerifyEmail=async (req,res)=>{
             // Email Send
             let SendEmail = await SendEmailUtility(email,"Your PIN Code is= "+OTPCode,"Task Manager PIN Verification")
             res.status(200).json({status: "success", data: SendEmail})
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         }
         else{
             res.status(400).json({status: "fail", data: "No User Found"})
